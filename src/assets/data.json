@@ -1,0 +1,9 @@
+[{
+    "id": 1,
+    "task": "Placeholder Task",
+    "done": false
+}, {
+    "id": 2,
+    "task": "Do laundry",
+    "done": true
+}]
