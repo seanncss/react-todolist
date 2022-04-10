@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ToDoList from "./ToDoList";
 import ToDoForm from "./ToDoForm";
-import initialToDos from './../assets/data.json';
+import initialToDos from '../assets/data.json';
 
 const Main = () => {
   
