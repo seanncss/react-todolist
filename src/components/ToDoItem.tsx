@@ -1,23 +1,27 @@
-import React, { useState } from 'react';
-import { InterfaceType } from 'typescript';
+import React from "react";
 
-interface props {
-    id: number,
-    task: string,
-    done: boolean,
-    handleToggle(id: number): any
+interface IToDoItemProps {
+  id: string;
+  task: string;
+  done: boolean;
+  handleToggle: (id: string) => void;
 }
 
-const ToDoItem = (props: any) => {
-    const handleClick = (event: React.ChangeEvent<HTMLElement>): any => {
-        props.handleToggle(event.currentTarget.id);
-        }
-    return (
-       <div>
-           <input id={props.id} type="checkbox" onChange={handleClick} checked={props.done}/>
-           <label> {props.task} </label>
-       </div>
-   );
+const ToDoItem: React.FC<IToDoItemProps> = (props) => {
+  const handleClick = (event: React.ChangeEvent<HTMLElement>) => {
+    props.handleToggle(event.currentTarget.id);
+  };
+  return (
+    <div>
+      <input
+        type="checkbox"
+        onChange={handleClick}
+        id={props.id}
+        checked={props.done}
+      />
+      <label>{props.task}</label>
+    </div>
+  );
 };
- 
+
 export default ToDoItem;

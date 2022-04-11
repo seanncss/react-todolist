@@ -3,8 +3,8 @@ import { fireEvent, render } from '@testing-library/react';
 import ToDoForm from './ToDoForm';
 
 describe('<ToDoForm />', () => {
-    const mockSubmit = jest.fn();
     it('render elements correctly', () => {
+        const mockSubmit = jest.fn();
         const { getByRole } = render(<ToDoForm addTask={mockSubmit}/>);
         const form = getByRole('textbox');
         const button = getByRole('button');
@@ -13,6 +13,7 @@ describe('<ToDoForm />', () => {
     })
 
     it('should call addTask when text is submitted through the textbox', () => {
+        const mockSubmit = jest.fn();
         const { getByRole } = render(<ToDoForm addTask={mockSubmit}/>);
         const form = getByRole('textbox');
         fireEvent.submit(form);

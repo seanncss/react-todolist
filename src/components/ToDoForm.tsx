@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-interface props {
-  addTask(userInput: string): any
+interface IToDoForm {
+  addTask: (userInput: string) => void
 }
 
-const ToDoForm = (props: any) => {
+const ToDoForm: React.FC<IToDoForm>  = (props) => {
     const [ userInput, setUserInput ] = useState('');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {setUserInput(event.currentTarget.value)}
     const handleSubmit = (event: React.FormEvent) => {
