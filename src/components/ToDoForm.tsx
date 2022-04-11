@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 
-const ToDoForm = (props) => {
-    const { addTask } = props;
-      const [ userInput, setUserInput ] = useState('');
-    const handleChange = (event) => {setUserInput(event.currentTarget.value)}
-    const handleSubmit = (event) => {
+interface IToDoForm {
+  addTask: (userInput: string) => void
+}
+
+const ToDoForm: React.FC<IToDoForm>  = (props) => {
+    const [ userInput, setUserInput ] = useState('');
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {setUserInput(event.currentTarget.value)}
+    const handleSubmit = (event: React.FormEvent) => {
       event.preventDefault(); // Don't want default action with forms because it reloads the initial page render
-      addTask(userInput);
+      props.addTask(userInput);
       setUserInput(""); // Reset form to empty input
     }
     return (
